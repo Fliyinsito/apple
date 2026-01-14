@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PortCanyamel - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Fade In Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans selection:bg-blue-500 selection:text-white min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                        <i data-lucide="code" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
+                        PortCanyamel
+                    </span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex space-x-1">
+                    <button onclick="navigateTo('home')" class="nav-btn flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 text-gray-300 hover:bg-gray-800 hover:text-white" data-page="home">
+                        <i data-lucide="home" class="w-4 h-4"></i>
+                        <span>Home</span>
+                    </button>
+                    <button onclick="navigateTo('privacy')" class="nav-btn flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 text-gray-300 hover:bg-gray-800 hover:text-white" data-page="privacy">
+                        <i data-lucide="shield" class="w-4 h-4"></i>
+                        <span>Privacy</span>
+                    </button>
+                    <button onclick="navigateTo('terms')" class="nav-btn flex items-center space-x-2 px-4 py-2 rounded-lg transition-colors duration-200 text-gray-300 hover:bg-gray-800 hover:text-white" data-page="terms">
+                        <i data-lucide="file-text" class="w-4 h-4"></i>
+                        <span>Terms</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none">
+                        <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-b border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <button onclick="navigateTo('home')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-gray-700">Home</button>
+                <button onclick="navigateTo('privacy')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Privacy Policy</button>
+                <button onclick="navigateTo('terms')" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Terms of Service</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        
+        <!-- HOME PAGE -->
+        <div id="page-home" class="page-content animate-fade-in">
+            <!-- Hero Section -->
+            <section class="relative overflow-hidden pt-20 pb-32">
+                <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+                    <div class="absolute right-0 top-0 w-96 h-96 bg-blue-500 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="absolute left-0 bottom-0 w-64 h-64 bg-purple-500 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                    <div class="text-center max-w-3xl mx-auto">
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+                            Building the <span class="text-blue-500">future</span> of digital experiences.
+                        </h1>
+                        <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+                            We are a collective of developers and designers passionate about creating robust, scalable, and user-centric web applications.
+                        </p>
+                        <div class="flex justify-center gap-4">
+                            <button onclick="scrollToSection('contact')" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all shadow-lg hover:shadow-blue-500/25 flex items-center gap-2">
+                                Get in Touch <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                            </button>
+                            <button onclick="scrollToSection('about')" class="px-8 py-3 bg-gray-800 hover:bg-gray-700 text-gray-200 font-semibold rounded-lg transition-all border border-gray-700 hover:border-gray-600">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Us Section -->
+            <section id="about" class="py-20 bg-gray-800/50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-3xl font-bold mb-6 flex items-center gap-3">
+                                <i data-lucide="code" class="text-blue-500"></i>
+                                About Us
+                            </h2>
+                            <p class="text-gray-400 mb-4 text-lg leading-relaxed">
+                                Founded in 2025, we started with a simple mission: to write clean code that solves real problems.
+                            </p>
+                            <p class="text-gray-400 mb-6 text-lg leading-relaxed">
+                                Our philosophy is rooted in transparency and technical excellence.
+                            </p>
+                            <div class="flex justify-center mt-8">
+                                <div class="p-4 bg-gray-900 rounded-xl border border-gray-700 w-1/2 text-center">
+                                    <h3 class="text-2xl font-bold text-white mb-1">100%</h3>
+                                    <p class="text-sm text-gray-400">Client Satisfaction</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl transform rotate-3 opacity-20 blur-lg"></div>
+                            <div class="relative bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-xl">
+                                <div class="flex items-center gap-2 mb-4">
+                                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                </div>
+                                <code class="text-sm text-gray-300 font-mono block">
+                                    <span class="text-purple-400">class</span> <span class="text-yellow-400">PortCanyamel</span> <span class="text-purple-400">extends</span> <span class="text-yellow-400">Excellence</span> {<br>
+                                    &nbsp;&nbsp;<span class="text-blue-400">constructor</span>() {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-red-400">this</span>.passion = <span class="text-green-400">true</span>;<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-red-400">this</span>.stack = [<span class="text-green-400">'React'</span>, <span class="text-green-400">'Node'</span>, <span class="text-green-400">'Python'</span>];<br>
+                                    &nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;<span class="text-blue-400">deploy</span>() {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-green-400">"Success"</span>;<br>
+                                    &nbsp;&nbsp;}<br>
+                                    }
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Us Section -->
+            <section id="contact" class="py-20 relative">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold mb-4 flex items-center justify-center gap-3">
+                            <i data-lucide="mail" class="text-blue-500"></i>
+                            Contact Us
+                        </h2>
+                        <p class="text-gray-400">Have a project in mind? Let's discuss how we can help you.</p>
+                        <p class="text-blue-400 mt-2 font-medium">contact@portcanyamel.com</p>
+                    </div>
+
+                    <div class="bg-gray-800 rounded-2xl shadow-xl border border-gray-700 overflow-hidden">
+                        <div class="p-8 md:p-12">
+                            <form id="contact-form" class="space-y-6 max-w-2xl mx-auto">
+                                <div>
+                                    <label htmlFor="name" class="block text-sm font-medium text-gray-400 mb-2">Full Name</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white transition-all" placeholder="John Doe">
+                                </div>
+                                <div>
+                                    <label htmlFor="email" class="block text-sm font-medium text-gray-400 mb-2">Email Address</label>
+                                    <input type="email" id="email" required class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white transition-all" placeholder="john@example.com">
+                                </div>
+                                <div>
+                                    <label htmlFor="message" class="block text-sm font-medium text-gray-400 mb-2">Message</label>
+                                    <textarea id="message" required rows="4" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-white transition-all resize-none" placeholder="Tell us about your project..."></textarea>
+                                </div>
+                                <button type="submit" id="submit-btn" class="w-full py-3 px-6 rounded-lg font-semibold text-white transition-all flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PRIVACY POLICY PAGE -->
+        <div id="page-privacy" class="page-content hidden animate-fade-in">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl border border-gray-700">
+                    <div class="flex items-center gap-3 mb-8">
+                        <i data-lucide="shield" class="text-blue-500 w-8 h-8"></i>
+                        <h1 class="text-3xl font-bold">Privacy Policy</h1>
+                    </div>
+                    
+                    <div class="prose prose-invert prose-lg max-w-none text-gray-300">
+                        <p class="text-gray-400 mb-6">Last updated: January 14, 2026</p>
+
+                        <p>Port Canyamel SL ("we," "us," or "our") respects your privacy. This Privacy Policy explains how we handle information when you use our mobile applications and services (collectively, the "Services").</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">1. Data Collection and Storage</h3>
+                        <p>We are committed to user privacy. <strong>We do not collect, store, or process any personal data, email addresses, or user information on our servers.</strong> You are not required to create an account to use our Services, and we do not maintain a database of user profiles.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">2. Third-Party Services</h3>
+                        <p>While we do not collect data directly, we utilize trusted third-party services to provide necessary infrastructure, analytics, and functionality for our applications. These third parties may collect and process certain data (such as device identifiers, usage statistics, and purchase history) in accordance with their own privacy policies.</p>
+                        <p class="mt-4">The third-party services we use include:</p>
+                        <ul class="list-disc pl-6 space-y-2 mt-4">
+                            <li><span class="text-white font-semibold">RevenueCat:</span> Used for managing in-app subscriptions and purchase validation.</li>
+                            <li><span class="text-white font-semibold">Firebase:</span> Used for analytics, crash reporting, and backend infrastructure.</li>
+                            <li><span class="text-white font-semibold">Appsflyer:</span> Used for mobile attribution and marketing analytics.</li>
+                            <li><span class="text-white font-semibold">AdMob:</span> Used for displaying in-app advertisements.</li>
+                            <li><span class="text-white font-semibold">AppLovin:</span> Used for advertising and mediation services.</li>
+                        </ul>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">3. Disclosure of Your Information</h3>
+                        <p>Since we do not collect or store personal information, we do not sell, trade, or transfer your personal data to outside parties. Data collected by the third-party services listed above is governed by their respective privacy policies.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">4. Children's Privacy</h3>
+                        <p>We do not knowingly solicit information from or market to children under the age of 13.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">5. Contact Us</h3>
+                        <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
+                        <div class="mt-4 text-gray-300 bg-gray-900/50 p-6 rounded-lg border border-gray-700">
+                            <p class="font-semibold text-white">Port Canyamel SL</p>
+                            <p>Business ID: B40600900</p>
+                            <p>Address: Calle Francisco Cubells 52, 46011 Valencia</p>
+                            <p class="mt-2">Email: <span class="text-blue-400">contact@portcanyamel.com</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TERMS OF SERVICE PAGE -->
+        <div id="page-terms" class="page-content hidden animate-fade-in">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div class="bg-gray-800 rounded-2xl p-8 md:p-12 shadow-xl border border-gray-700">
+                    <div class="flex items-center gap-3 mb-8">
+                        <i data-lucide="file-text" class="text-blue-500 w-8 h-8"></i>
+                        <h1 class="text-3xl font-bold">Terms of Service</h1>
+                    </div>
+
+                    <div class="prose prose-invert prose-lg max-w-none text-gray-300">
+                        <p class="text-gray-400 mb-6">Last updated: January 14, 2026</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">1. Agreement to Terms</h3>
+                        <p>These Terms of Service constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you") and Port Canyamel SL ("we," "us," or "our"), concerning your access to and use of our website and mobile applications (collectively, the "Services"). By accessing the Services, you agree that you have read, understood, and agreed to be bound by all of these Terms of Service.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">2. Intellectual Property Rights</h3>
+                        <p>Unless otherwise indicated, the Services and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics on the Services (collectively, the "Content") and the trademarks, service marks, and logos contained therein (the "Marks") are owned or controlled by us or licensed to us, and are protected by copyright and trademark laws.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">3. User Representations</h3>
+                        <p>By using the Services, you represent and warrant that: (1) you have the legal capacity and you agree to comply with these Terms of Service; and (2) you are not located in a country that is subject to a U.S. government embargo, or that has been designated by the U.S. government as a "terrorist supporting" country.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">4. Third-Party Services and Ads</h3>
+                        <p>The Services may integrate with or contain links to third-party services and advertisements (including but not limited to RevenueCat, Firebase, Appsflyer, AdMob, and AppLovin). We do not control these third-party services and are not responsible for their content, policies, or practices. Your interactions with these third parties are solely between you and the third party.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">5. Disclaimer</h3>
+                        <p>THE SERVICES ARE PROVIDED ON AN AS-IS AND AS-AVAILABLE BASIS. YOU AGREE THAT YOUR USE OF THE SERVICES WILL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF.</p>
+
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">6. Limitation of Liability</h3>
+                        <p>IN NO EVENT WILL WE OR OUR DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY DIRECT, INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFIT, LOST REVENUE, LOSS OF DATA, OR OTHER DAMAGES ARISING FROM YOUR USE OF THE SERVICES, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+                        
+                        <h3 class="text-xl font-bold text-white mt-8 mb-4">7. Contact Us</h3>
+                        <p>In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:</p>
+                        <div class="mt-4 text-gray-300 bg-gray-900/50 p-6 rounded-lg border border-gray-700">
+                            <p class="font-semibold text-white">Port Canyamel SL</p>
+                            <p>Business ID: B40600900</p>
+                            <p>Address: Calle Francisco Cubells 52, 46011 Valencia</p>
+                            <p class="mt-2">Email: <span class="text-blue-400">contact@portcanyamel.com</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-6 h-6 bg-blue-600 rounded flex items-center justify-center">
+                            <i data-lucide="code" class="text-white w-3 h-3"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">PortCanyamel</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-xs">
+                        Crafting digital experiences with code and creativity. Let's build something amazing together.
+                    </p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                    <div class="flex flex-col space-y-2 items-center">
+                        <button onclick="navigateTo('privacy')" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Privacy Policy</button>
+                        <button onclick="navigateTo('terms')" class="text-gray-400 hover:text-blue-400 transition-colors text-sm">Terms of Service</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex justify-center items-center text-sm text-gray-500">
+                <p>&copy; 2025 PortCanyamel. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // State Management
+        let currentPage = 'home';
+
+        // Navigation Function
+        function navigateTo(pageId) {
+            currentPage = pageId;
+            
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(el => {
+                el.classList.add('hidden');
+            });
+
+            // Show target page
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if(targetPage) {
+                targetPage.classList.remove('hidden');
+                // Re-trigger animation
+                targetPage.classList.remove('animate-fade-in');
+                void targetPage.offsetWidth; // trigger reflow
+                targetPage.classList.add('animate-fade-in');
+            }
+
+            // Update Active State in Desktop Nav
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if(btn.dataset.page === pageId) {
+                    btn.classList.add('bg-blue-600', 'text-white');
+                    btn.classList.remove('text-gray-300', 'hover:bg-gray-800', 'hover:text-white');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white');
+                    btn.classList.add('text-gray-300', 'hover:bg-gray-800', 'hover:text-white');
+                }
+            });
+
+            // Close Mobile Menu
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth Scroll Helper
+        function scrollToSection(sectionId) {
+            if(currentPage !== 'home') {
+                navigateTo('home');
+                setTimeout(() => {
+                    const el = document.getElementById(sectionId);
+                    if(el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                const el = document.getElementById(sectionId);
+                if(el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Form Handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            const originalText = btn.innerText;
+            
+            // Sending State
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Success State
+                btn.innerText = 'Message Sent!';
+                btn.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+                btn.classList.add('bg-green-600', 'hover:bg-green-700');
+                
+                // Reset Form
+                this.reset();
+
+                // Reset Button after delay
+                setTimeout(() => {
+                    btn.innerText = 'Send Message';
+                    btn.disabled = false;
+                    btn.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+                }, 3000);
+            }, 1500);
+        });
+
+        // Initial Load
+        navigateTo('home');
+    </script>
+</body>
+</html>
