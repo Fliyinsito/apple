@@ -1,3 +1,5 @@
+google.com, pub-5166527882662470, DIRECT, f08c47fec0942fa0
+
 applovin.com, a4a0752362f32a4067c2c52ab5d7c773, DIRECT
 
 adyoulike.com, 2d578cf695c89ec2ba707280319d2020, RESELLER
@@ -71,5 +73,6 @@ xandr.com, 13799, RESELLER
 xandr.com, 14082, RESELLER
 
 yieldmo.com, 3591550211052216798, RESELLER, 6a92c77cfc3d2258
+
 
 zmaticoo.com, 5135655, RESELLER
